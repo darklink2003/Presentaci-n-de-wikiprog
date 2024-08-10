@@ -1,0 +1,32 @@
+.btn-like {
+    background-color: #28a745; /* Color verde para "like" */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-dislike {
+    background-color: #dc3545; /* Color rojo para "dislike" */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn-like:hover {
+    background-color: #218838; /* Color más oscuro para "like" al pasar el mouse */
+}
+
+.btn-dislike:hover {
+    background-color: #c82333; /* Color más oscuro para "dislike" al pasar el mouse */
+}
+
+.btn-like:focus,
+.btn-dislike:focus {
+    outline: none; /* Quitar el borde de enfoque */
+}

@@ -1,0 +1,248 @@
+body {
+  padding-top: 60px;
+  padding-bottom: 40px;
+  background-image: url(img/FONDO.png);
+  background-repeat: repeat;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+#cursos-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px;
+}
+
+.curso {
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  padding: 16px;
+  border-radius: 8px;
+  width: calc(33.333% - 32px);
+  box-sizing: border-box;
+}
+
+.curso h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.5em;
+}
+
+.curso p {
+  margin: 0;
+  color: #555;
+  
+}
+.leccion {
+  
+  padding: 10px;
+  border-radius: 8px;
+  width: calc(33.333% - 32px);
+  box-sizing: border-box;
+}
+
+.leccion h2 {
+  margin: 0 0 8px 0;
+  font-size: 1.5em;
+}
+
+.leccion p {
+  margin: 0;
+  color: #555;
+  
+}
+
+/* estilos de tu perfil */
+
+#myModal {
+    display: none; /* Oculto por defecto */
+    position: fixed; /* Posición fija */
+    z-index: 1; /* Encima de todo */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ocupar todo el ancho */
+    height: 100%; /* Ocupar toda la altura */
+    overflow: auto; /* Permitir desplazamiento si es necesario */
+    background-color: rgba(0, 0, 0, 0.4); /* Fondo oscuro semi-transparente */
+}
+
+.modal-content {
+    background-color: #4CAF50; /* Color verde */
+    margin: 15% auto; /* Centrado verticalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%; /* Ancho del modal */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#siBtn, #noBtn {
+    background-color: #4CAF50; /* Color verde */
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+/* <------------ Estilo para tu perfil-------------------------> */
+/* Estilos generales */
+body {
+  background-image: url(img/FONDO.png);
+  background-repeat: repeat;
+  background-size: cover;
+}
+
+/* Contenedor de títulos */
+.container_titulo {
+  background-color: #353349;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+}
+
+/* Elementos dentro del contenedor de títulos */
+.container_titulo .row,
+.container_titulo .col-md-3 {
+  align-items: center;
+}
+
+/* Elemento círculo dentro del contenedor de títulos */
+.container_titulo .col-md-3 .circulo {
+  width: 85px;
+  height: 85px;
+  border-radius: 50%;
+  border: 1px solid white;
+}
+
+/* Párrafos dentro del contenedor de títulos */
+.container_titulo p {
+  margin: 0;
+  color: white;
+  font-weight: bold;
+}
+
+/* Botones dentro del contenedor de títulos */
+.container_titulo button[type="button"] {
+  background-color: #3a2aeb;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  display: flex;
+}
+
+/* Estilos para otros elementos (ejemplos) */
+.container_usuario {
+  background-color: #353349;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid black;
+}
+
+#columna1 {
+  background-color: #353349;
+  width: 100%;
+  height: 300px;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 4px;
+}
+
+#columna2 {
+  background-color: #353349;
+  padding: 20px;
+  width: 100%;
+  height: 300px;
+  border: 1px solid black;
+  border-radius: 25px;
+}
+
+#columna2 textarea {
+  background-color: #353349;
+}
+
+/* #myModal { */
+  /* ... Estilos para el modal ... */
+/* } */
+
+/* ... Más estilos para otros elementos ... */
+ 
+
+/* <------------ Estilo para actualizar perfil tu perfil-------------------------> */
+
+
+
+#circulo{
+border: 1px solid white;
+border-radius: 50%;
+width: 150px;
+height: 150px;
+background-color: #353349;
+
+}
+#linea{
+    color: white;
+}
+#boton_perfil{
+    background-color: #353349;
+    color: white;
+    border-radius: 10px;
+    margin-top: 10%;
+    width: 200px;
+    height: 75px;
+}
+#columna{
+    background-color: #292835;
+    padding:20px;
+    width: 75%;
+}
+
+.archivo-container {
+  margin-bottom: 1px;
+  /* Espaciado entre contenedores */
+  padding: 10px;
+  /* Ajusta el relleno según sea necesario */
+  color: white;
+  /* Asegúrate de que el texto sea legible sobre el fondo oscuro */
+  border-radius: 5px 5px 5px 5px;
+}
+
+.archivo-container:last-child {
+  margin-bottom: 0;
+  /* Elimina el margen inferior del último contenedor */
+
+}
+
+.bg-custom-dark {
+  background-color: #232230;
+}
+
+.bg-custom-darker {
+  background-color: #121113;
+}
+
+.form-control-file {
+  color: white;
+  
+}
+
+

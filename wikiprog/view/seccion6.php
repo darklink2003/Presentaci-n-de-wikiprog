@@ -25,7 +25,7 @@ if (!isset($_SESSION['usuario_id'])) {
     exit();
 }
 ?>
-<div class="container">
+<div class="container" style="color:white;">
     <div class="row">
         <h1>Administrador</h1>
     </div>

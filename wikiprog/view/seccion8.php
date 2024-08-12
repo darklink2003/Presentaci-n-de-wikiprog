@@ -71,7 +71,7 @@ if ($resultado->num_rows == 1) {
                 <div class="row no-gutters">
                     <!-- Primera columna: Título -->
                     <div class="col-md-4">
-                        <div class="row" style="font-size:25px; font-family:Impact; text-align: center; padding:25px;">
+                        <div class="row" style="font-size:25px; font-family:Arial; text-align: center; padding:25px;">
                             <h1>
                                 Formulario de Inscripción al curso de <p>" <?php echo $titulo_curso; ?> "</p>
                             </h1>

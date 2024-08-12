@@ -49,9 +49,12 @@
                             <div class="input-group">
                                 <input type="password" class="form-control" id="password" name="password"
                                     placeholder="Ingresa tu contraseña" required aria-label="Contraseña">
-                                <button class="btn btn-outline-secondary" type="button"
-                                    id="toggle-password">Mostrar</button>
+                                <button class="btn btn-outline-secondary" type="button" id="toggle-password">Mostrar</button>
                             </div>
+                            <!-- Mensaje con los requisitos de la contraseña (inicialmente oculto) -->
+                            <small class="form-text text-muted" id="password-requirements" style="display: none;">
+                                La contraseña debe contener al menos una letra minúscula, una letra mayúscula, un número, un carácter especial y tener una longitud mínima de 8 caracteres.
+                            </small>
                         </div>
                         
                         <!-- Campo para ingresar el código de verificación -->
@@ -116,7 +119,7 @@
 
     // Función para validar la contraseña
     function validatePassword(password) {
-        const regex = /^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/;
+        const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*[0-9])(?=.*[!@#$%^&*]).{8,}$/;
         return regex.test(password);
     }
 
@@ -128,13 +131,13 @@
     // Cuando el documento HTML está completamente cargado
     document.addEventListener('DOMContentLoaded', function () {
         // Generar un código de verificación inicial y mostrarlo en el span correspondiente
-        const generatedCode = generateVerificationCode();
+        let generatedCode = generateVerificationCode();
         document.getElementById('generated-code').textContent = generatedCode;
 
         // Evento para refrescar el código de verificación cuando se hace clic en el botón correspondiente
         document.getElementById('refresh-code').addEventListener('click', function () {
-            const newCode = generateVerificationCode();
-            document.getElementById('generated-code').textContent = newCode;
+            generatedCode = generateVerificationCode();
+            document.getElementById('generated-code').textContent = generatedCode;
         });
 
         // Evento para mostrar u ocultar la contraseña cuando se hace clic en el botón correspondiente
@@ -150,6 +153,17 @@
             }
         });
 
+        // Mostrar el mensaje con los requisitos de la contraseña cuando se escribe
+        const passwordField = document.getElementById('password');
+        const passwordRequirements = document.getElementById('password-requirements');
+        passwordField.addEventListener('input', function () {
+            if (passwordField.value.length > 0) {
+                passwordRequirements.style.display = 'block';
+            } else {
+                passwordRequirements.style.display = 'none';
+            }
+        });
+
         // Manejar el envío del formulario
         document.getElementById('formulario-registro').addEventListener('submit', function (event) {
             // Obtener la contraseña ingresada por el usuario
@@ -159,12 +173,11 @@
             if (!validatePassword(password)) {
                 event.preventDefault(); // Evitar que se envíe el formulario si la contraseña no cumple con los requisitos
                 const mensajeContainer = document.getElementById('mensaje-container');
-                mostrarMensajeEnContenedor(mensajeContainer, 'La contraseña debe contener al menos una letra mayúscula, un número, un caracter especial y tener una longitud mínima de 8 caracteres.', 'danger');
+                mostrarMensajeEnContenedor(mensajeContainer, 'La contraseña debe contener al menos una letra mayúscula, una minúscula, un número, un carácter especial y tener una longitud mínima de 8 caracteres.', 'danger');
             }
 
             // Obtener el código ingresado por el usuario y el código generado actualmente
             const inputCode = document.getElementById('verification-code-input').value;
-            const generatedCode = document.getElementById('generated-code').textContent;
 
             // Validar el código de verificación
             if (!validateVerificationCode(inputCode, generatedCode)) {

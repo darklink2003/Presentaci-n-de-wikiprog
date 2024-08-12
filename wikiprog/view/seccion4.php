@@ -2,17 +2,17 @@
 
 <!-- Formulario para la creación y edición de cursos -->
 <div class="contenedor_descripcion">
-    <form action="../model/guardar_curso.php" method="POST" enctype="multipart/form-data">
+    <form action="../model/guardar_curso.php" method="POST" enctype="multipart/form-data" onsubmit="return validarFormularioCurso();">
         <!-- Encabezado del formulario -->
         <div class="row" style="height:100px;background-color: #1a1924; border-radius:15px;">
             <!-- Columna izquierda para título y descripción -->
             <div class="col-md-8 d-flex justify-content-center align-items-center">
                 <input type="text" name="titulo_curso" placeholder="Título del curso" required class="form-control"
-                    style=" border-radius: 10px;">
+                    style="border-radius: 10px;">
                 <input type="text" name="descripcion" placeholder="Descripción" class="form-control"
                     style="margin-left:10px; border-radius: 10px;" required>
             </div>
-            <!-- Columna derecha para selección de categoría y botón de eliminar curso -->
+            <!-- Columna derecha para selección de categoría -->
             <div class="col-md-4 d-flex justify-content-center align-items-center">
                 <select name="categoria" required class="form-select"
                     style="background-color: #1a1924; color: white; border-radius: 10px;">
@@ -77,6 +77,23 @@
 
 <!-- Script JavaScript para agregar dinámicamente campos de prueba -->
 <script>
+    function validarFormularioCurso() {
+        const lecciones = document.querySelectorAll('#lecciones .col-md-12');
+        const pruebas = document.querySelectorAll('#pruebas .prueba');
+
+        if (lecciones.length === 0) {
+            alert('Debes agregar al menos una lección.');
+            return false;
+        }
+
+        if (pruebas.length === 0) {
+            alert('Debes agregar al menos una prueba.');
+            return false;
+        }
+
+        return true;
+    }
+
     var numPruebas = 0;
 
     function agregarPrueba() {
@@ -121,5 +138,35 @@
         divPrueba.appendChild(eliminarBtn);
 
         document.getElementById("pruebas").appendChild(divPrueba);
+    }
+
+    function agregarLeccion() {
+        const leccionesContainer = document.getElementById("lecciones");
+        const leccionHTML = `
+            <div class="col-md-12 mt-3">
+                <div class="bg-dark p-3 rounded">
+                    <div class="form-group mb-3">
+                        <label for="titulo_leccion" class="form-label">Título de la lección</label>
+                        <input type="text" class="form-control" name="titulo_leccion[]" placeholder="Título de la lección" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="contenido_leccion" class="form-label">Descripción</label>
+                        <textarea class="form-control" name="contenido_leccion[]" placeholder="Descripción" required></textarea>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="archivo_leccion" class="form-label">Archivo de la lección</label>
+                        <input type="file" class="form-control" name="archivo_leccion[]" required>
+                    </div>
+                    <button type="button" class="btn btn-danger" onclick="eliminarLeccion(this)">Eliminar lección</button>
+                </div>
+            </div>
+        `;
+        const leccionDiv = document.createElement("div");
+        leccionDiv.innerHTML = leccionHTML.trim();
+        leccionesContainer.appendChild(leccionDiv.firstChild);
+    }
+
+    function eliminarLeccion(button) {
+        document.getElementById("lecciones").removeChild(button.closest(".col-md-12"));
     }
 </script>

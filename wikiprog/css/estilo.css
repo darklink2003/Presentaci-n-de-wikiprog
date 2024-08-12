@@ -11,27 +11,48 @@ body {
   display: flex;
   flex-wrap: wrap;
   gap: 16px;
-  padding: 16px;
 }
 
 .curso {
-  background-color: #f9f9f9;
+  background-color: #ffffff;
   border: 1px solid #ddd;
   padding: 16px;
   border-radius: 8px;
-  width: calc(33.333% - 32px);
+  width: 100%;
+  max-width: 300px; /* Ajusta el tamaño máximo de los cursos */
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
 }
 
 .curso h2 {
   margin: 0 0 8px 0;
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 
 .curso p {
-  margin: 0;
+  margin: 0 0 12px 0;
   color: #555;
-  
+}
+
+.ver-lecciones-link {
+  margin-top: auto; /* Empuja el botón hacia abajo si hay espacio disponible */
+  width: 100%;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+  .curso {
+      width: calc(50% - 16px); /* Dos cursos por fila */
+  }
+}
+
+/* Estilos para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .curso {
+      width: calc(100% - 32px); /* Un curso por fila */
+  }
 }
 .leccion {
   

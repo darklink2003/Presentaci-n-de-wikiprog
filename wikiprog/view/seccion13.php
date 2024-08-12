@@ -135,7 +135,7 @@
                         <div class="form-group">
                             <label for="intentos_fallidos">Intentos Fallidos:</label>
                             <input type="number" class="form-control" id="intentos_fallidos" name="intentos_fallidos"
-                                value="<?php echo $intentos_fallidos; ?>" readonly style="background-color:#444444;">
+                                value="<?php echo $intentos_fallidos; ?>"  style="background-color:#444444;">
                         </div>
                         <div class="form-group">
                             <label for="cuenta_bloqueada">Cuenta Bloqueada:</label>

@@ -1,4 +1,4 @@
--- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+﻿-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: wikiprog
 -- ------------------------------------------------------
@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `archivo`;
 CREATE TABLE `archivo` (
   `archivo_id` int(11) NOT NULL AUTO_INCREMENT,
   `usuario_id` int(11) NOT NULL,
-  `nombre_archivo` varchar(45) DEFAULT NULL,
+  `nombre_archivo` varchar(100) DEFAULT NULL,
   `tamaño` varchar(45) DEFAULT NULL,
   `privacidad_id` int(11) NOT NULL,
   `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp(),

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Autor: Pablo Mondragon (darklink2003)
+ * Autor: Camilo Figueroa ( Crivera )
  * Redirecciona según la existencia de la base de datos.
  *
  */

@@ -1,4 +1,4 @@
-﻿-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
+-- MySQL dump 10.13  Distrib 8.0.34, for Win64 (x86_64)
 --
 -- Host: 127.0.0.1    Database: wikiprog
 -- ------------------------------------------------------
@@ -25,7 +25,7 @@ DROP TABLE IF EXISTS `archivo`;
 CREATE TABLE `archivo` (
   `archivo_id` int(11) NOT NULL AUTO_INCREMENT,
   `usuario_id` int(11) NOT NULL,
-  `nombre_archivo` varchar(100) DEFAULT NULL,
+  `nombre_archivo` varchar(45) DEFAULT NULL,
   `tamaño` varchar(45) DEFAULT NULL,
   `privacidad_id` int(11) NOT NULL,
   `fecha_registro` timestamp NOT NULL DEFAULT current_timestamp(),
@@ -35,7 +35,7 @@ CREATE TABLE `archivo` (
   KEY `privacidad_id` (`privacidad_id`),
   CONSTRAINT `archivo_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`usuario_id`),
   CONSTRAINT `archivo_ibfk_2` FOREIGN KEY (`privacidad_id`) REFERENCES `privacidad` (`privacidad_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -88,7 +88,7 @@ CREATE TABLE `comentario` (
   PRIMARY KEY (`comentario_id`),
   KEY `usuario_id` (`usuario_id`),
   CONSTRAINT `comentario_ibfk_1` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`usuario_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=49 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -97,7 +97,6 @@ CREATE TABLE `comentario` (
 
 LOCK TABLES `comentario` WRITE;
 /*!40000 ALTER TABLE `comentario` DISABLE KEYS */;
-INSERT INTO `comentario` VALUES (48,40,73,'das','2024-08-09 00:49:41');
 /*!40000 ALTER TABLE `comentario` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,6 +129,7 @@ CREATE TABLE `curso` (
 
 LOCK TABLES `curso` WRITE;
 /*!40000 ALTER TABLE `curso` DISABLE KEYS */;
+INSERT INTO `curso` VALUES (73,'Explicacion','Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sapiente exercitationem sunt unde minus consectetur reprehenderit atque quibusdam delectus. Similique sint suscipit eligendi debitis magni ipsa eum quae dolore exercitationem.',5,40,0,'2024-08-01 15:07:41'),(74,'Curso','lorem',2,40,0,'2024-08-02 16:20:19');
 /*!40000 ALTER TABLE `curso` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -156,7 +156,7 @@ CREATE TABLE `inscripción` (
   KEY `usuario_id` (`usuario_id`),
   CONSTRAINT `inscripción_ibfk_1` FOREIGN KEY (`curso_id`) REFERENCES `curso` (`curso_id`) ON DELETE SET NULL,
   CONSTRAINT `inscripción_ibfk_2` FOREIGN KEY (`usuario_id`) REFERENCES `usuario` (`usuario_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -165,7 +165,6 @@ CREATE TABLE `inscripción` (
 
 LOCK TABLES `inscripción` WRITE;
 /*!40000 ALTER TABLE `inscripción` DISABLE KEYS */;
-INSERT INTO `inscripción` VALUES (15,NULL,40,'dark','admini2@gmail.com','masculino','Colombia','si',0,'2024-08-10 18:30:33');
 /*!40000 ALTER TABLE `inscripción` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -225,6 +224,7 @@ CREATE TABLE `leccion` (
 
 LOCK TABLES `leccion` WRITE;
 /*!40000 ALTER TABLE `leccion` DISABLE KEYS */;
+INSERT INTO `leccion` VALUES (73,73,'leccion','Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod sapiente exercitationem sunt unde minus consectetur reprehenderit atque quibusdam delectus. Similique sint suscipit eligendi debitis magni ipsa eum quae dolore exercitationem.','../archivos_leccion/66aba4bd342a9_+ Mapa mental.pdf','2024-08-01 15:07:41'),(74,74,'a','a','../archivos_leccion/66ad074376029_ADSO-21 - EV04_LCH_Transferencia.pdf','2024-08-02 16:20:19');
 /*!40000 ALTER TABLE `leccion` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -322,7 +322,7 @@ CREATE TABLE `registro_creacion_archivo` (
   `archivo_id` int(11) NOT NULL,
   `fecha_creacion` timestamp NOT NULL DEFAULT current_timestamp(),
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -331,7 +331,7 @@ CREATE TABLE `registro_creacion_archivo` (
 
 LOCK TABLES `registro_creacion_archivo` WRITE;
 /*!40000 ALTER TABLE `registro_creacion_archivo` DISABLE KEYS */;
-INSERT INTO `registro_creacion_archivo` VALUES (1,43,'2024-07-31 15:59:14'),(2,46,'2024-08-01 12:59:13'),(3,47,'2024-08-01 12:59:26'),(4,48,'2024-08-01 12:59:46'),(5,49,'2024-08-01 15:03:45'),(6,50,'2024-08-01 16:31:00'),(7,51,'2024-08-02 13:00:31'),(8,52,'2024-08-10 23:35:37');
+INSERT INTO `registro_creacion_archivo` VALUES (1,43,'2024-07-31 15:59:14'),(2,46,'2024-08-01 12:59:13'),(3,47,'2024-08-01 12:59:26'),(4,48,'2024-08-01 12:59:46'),(5,49,'2024-08-01 15:03:45'),(6,50,'2024-08-01 16:31:00'),(7,51,'2024-08-02 13:00:31');
 /*!40000 ALTER TABLE `registro_creacion_archivo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -403,7 +403,7 @@ CREATE TABLE `respuesta` (
   KEY `fk_respuesta_inscripcion` (`inscripción_id`),
   CONSTRAINT `fk_respuesta_inscripcion` FOREIGN KEY (`inscripción_id`) REFERENCES `inscripción` (`inscripción_id`),
   CONSTRAINT `fk_respuesta_prueba` FOREIGN KEY (`prueba_id`) REFERENCES `prueba` (`prueba_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=29 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -445,7 +445,7 @@ CREATE TABLE `usuario` (
 
 LOCK TABLES `usuario` WRITE;
 /*!40000 ALTER TABLE `usuario` DISABLE KEYS */;
-INSERT INTO `usuario` VALUES (40,'admin2','../img_usuario/perfil.png','admini2@gmail.com','administrador2','Administrador!',2,'2024-08-01 13:12:42',0,0),(41,'evaluador','../img_usuario/perfil.png','evaluador@gmil.com','evaluador','Evaluador$',3,'2024-08-01 13:16:40',0,0),(43,'usuario','../img_usuario/perfil.png','usuario@gmail.com','usuario','Usuario&',1,'2024-08-02 16:17:33',0,0);
+INSERT INTO `usuario` VALUES (40,'admin','../img_usuario/perfil.png','admini@gmail.com','administrador','Administrador!',2,'2024-08-01 13:12:42',0,0),(41,'evaluador','../img_usuario/perfil.png','evaluador@gmil.com','evaluador','Evaluador$',3,'2024-08-01 13:16:40',0,0),(43,'usuario','../img_usuario/perfil.png','usuario@gmail.com','usuario','Usuario&',1,'2024-08-02 16:17:33',0,0);
 /*!40000 ALTER TABLE `usuario` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -458,4 +458,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2024-08-10 18:46:26
+-- Dump completed on 2024-08-05 16:27:43
